@@ -140,3 +140,4 @@ Rover Status: GET /api/rover/status
 Rover Movement: POST /api/rover/move
 {"direction":"up"}
 
+PS: Validations not working as of now.
