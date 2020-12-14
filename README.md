@@ -3,7 +3,19 @@ Space rover possible navigation simulations
 SpaceRover has some constraints viz. battery level, given mapped area and weather conditions e.g. it can't move in storm.
 Environment variables can move only once however Rover's configuration can be done as many times as needed.
 
-Initial Environment Configurations: POST /api/environment/configure
+
+Steps to Run:
+sudo apt-get install python3-venv
+python3 -m venv <name_of_virtual_environment>
+source <name_of_environment>/bin/activate
+pip install -r requirements.txt
+export FLASK_APP=ajirayan
+flask run
+
+Sample Request and Responses along with their respective HTTP Methods and URL endpoint is listed below:
+
+
+1) Initial Environment Configurations: POST /api/environment/configure
 
 {
 "temperature": 60,
@@ -19,10 +31,10 @@ Initial Environment Configurations: POST /api/environment/configure
 ]
 }
 
-Subsequent environment change : PATCH /api/environment
+2)Subsequent environment change : PATCH /api/environment
 {"storm":true}
 
-Initial Rover configurations: POST /api/rover/configure 
+3)Initial Rover configurations: POST /api/rover/configure 
 
 {
 "scenarios": [
@@ -109,7 +121,7 @@ Initial Rover configurations: POST /api/rover/configure
 
 
 
-Rover Status: GET /api/rover/status
+4) Rover Status: GET /api/rover/status
 
 {
     "environment": {
@@ -137,7 +149,7 @@ Rover Status: GET /api/rover/status
 
 
 
-Rover Movement: POST /api/rover/move
+5) Rover Movement: POST /api/rover/move
 {"direction":"up"}
 
 PS: Validations not working as of now.
